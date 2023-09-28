@@ -15,22 +15,36 @@
 
     <main class="main">
         <section>
+
             <div class="wrapper">
                 <div class="options">
                     <h2 class="options-title">Choose your <br> opponent</h2>
-                    <button class="friend">Friend</button>
-                    <button class="computer">Pennywise</button>
+                    <button class="friend opponent-btn" onclick="chooseOpponent(this)">
+                        Friend
+                    </button>
+                    <button class="computer opponent-btn" onclick="chooseOpponent(this)">
+                        Pennywise
+                    </button>
                     <h2 class="options-title">Symbol</h2>
-                    <button class="croos">X</button>
-                    <button class="circle">O</button>
-                    <div>
+                    <button class="croos symbol-btn" onclick="chooseSymbol(this)">X</button>
+                    <button class="circle symbol-btn" onclick="chooseSymbol(this)">O</button>
+                    <div class="play-wrapper">
                         <button class="play">Play</button> 
+                        <div class="wave"></div>
                     </div>
                 </div>
-
             </div>
+            
         </section>
     </main>
+
+    <article class="none">
+        <div class="animation">
+            <div class="hands">
+                <!-- Hands Animation -->
+            </div>
+        </div>
+    </article>
     
 
     <script src="./main.js"></script>

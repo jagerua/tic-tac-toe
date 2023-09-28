@@ -6,8 +6,17 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
+    outline: 0;
+    list-style: none;
+    text-decoration: none;
     box-sizing: border-box;
     font-family: "IT Font";
+}
+
+:root {
+    --color-white: #fff;
+    --color-red: #DE4827;
 }
 
 body {
@@ -19,6 +28,10 @@ body {
 h1 {
     font-size: 48px;
     text-align: center;
+}
+
+.none {
+    display: none;
 }
 
 .balloons {
@@ -57,37 +70,118 @@ section {
     justify-content: center;
     align-items: center;
     width: 400px;
-    height: 500px; 
+    height: 100%;
+    max-height: 500px;
+    
 }
 
 .options-title {
     font-size: 37px;
 }
 
+.active {
+    color: var(--color-white);
+}
+
+.opponent-btn, .symbol-btn {
+    position: relative;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--color-red);
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.drop {
+    position: absolute;
+    bottom: 0px;
+    width: 4px;
+    height: 4px;
+    border-radius: 0px 100px 100px 100px;
+    background-color: var(--color-red);
+    box-shadow: 1px 1px 3px var(--color-red);
+    z-index: 2;
+}
+
+.friend:hover .drop,
+.computer:hover .drop {
+    animation: drop 1.5s infinite both;
+}
+
+.opponent-btn:hover,
+.symbol-btn:hover {
+    transform: scale(1.05);
+}
+
+.drop:nth-child(1) {
+    bottom: 2px;
+    left: 10%;
+    animation-delay: 0.5s;
+}
+
 .options {
     text-align: center;
-    padding: 20px 40px;
+    padding: 40px 40px 10px;
     width: 280px;
-    height: 250px;
-
     background: rgba(255, 255, 255, 0.11);
     border-radius: 16px;
     box-shadow: 0 0px 13px rgb(255 0 0);
     backdrop-filter: blur(2.9px);
     -webkit-backdrop-filter: blur(2.9px);
     border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
 }
+
+.play-wrapper {
+    position: relative;
+    width: 100%;
+    height: 65px;
+
+    & > div {
+        overflow: hidden;
+        margin: 5px auto;
+    }
+}
+
+.play {
+    position: absolute;
+    left: -150px;
+    font-size: min(max(7px, 3vw), 12px);
+    font-weight: 700;
+    margin: 10px 20px;
+    padding: 20px 20px 10px 20px;
+    background: url(./assets/boat.png) no-repeat;
+    background-size: contain;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.wave {
+    position: relative;
+    opacity: 0;
+    top: 35px;
+    left: -2px;
+      width: 2px;
+      height: 1px;
+    border: #FFF 1px solid;
+      -moz-border-radius: 300px / 150px;
+      -webkit-border-radius: 300px / 150px;
+      border-radius: 300px / 150px;
+    z-index: -1;
+  }
 
 .wrapper::after {
     content: '';
     position: absolute;
-    width: 200px;
-    height: 200px;
+    height: 10rem;
+    width: 10rem;
     bottom: 70%;
     left: 50%;
     background: url(./assets/pennywise.png) no-repeat;
-    background-size: cover;
-    transform: translate(-50%, 0%);
+    background-size: contain;
+    transform: translateX(-50%);
     z-index: 3;
 }
 
@@ -97,6 +191,22 @@ section {
 @keyframes float {
     from {transform: translateY(100vh);}
     to {transform: translateY(-300vh);}
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(0) rotate(45deg);
+        animation-timing-function: ease-in-out;
+    }
+    100% {
+        transform: translateY(200%) rotate(45deg);
+        animation-timing-function: ease-in-out;
+    }
+}
+
+@keyframes boat {
+    from {transform: translateX(0);}
+    to {transform: translateX(195px);}
 }
 
 /* @keyframes float {
@@ -113,3 +223,49 @@ section {
         transform: translateY(-300vh) translateX(0px)
     }
 } */
+
+@keyframes ripple {
+    from {
+      opacity: 1;
+    }
+    to {
+      width: 90px;
+      height: 40px;
+      border-width: 1px;
+      top: 25px;
+      opacity: 0;
+    }
+}
+
+.animation {
+    width: 1220px;
+    margin: 0 auto;
+}
+
+.row {
+    position: relative;
+    display: grid;
+    perspective: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.item {
+    position: relative;
+    top: -5px;
+    display: inline-block;
+    max-width: 100%;
+    width: 150px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 4px;
+    border: 2px red solid;
+    box-sizing: border-box;
+    color: white;
+    background: #ccc;
+    text-align: center;
+    transition: 0.7s ease;
+}
+
+.first-row {
+    overflow: hidden;
+}
