@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
+    <link rel="icon" type="image/x-icon" href="./assets/balloon.png">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-    <h1>Tic Tac Toe <br> Game</h1>
-    <div class="balloons">
-    </div>
+    <!-- <h1 class="game-name">Tic Tac Toe <br> Game</h1> -->
+    <!-- <div class="balloons"></div>
 
     <main class="main">
-        <section>
+        <section class="main-screen">
 
             <div class="wrapper">
                 <div class="options">
@@ -22,7 +22,7 @@
                     <button class="friend opponent-btn" onclick="chooseOpponent(this)">
                         Friend
                     </button>
-                    <button class="computer opponent-btn" onclick="chooseOpponent(this)">
+                    <button class="computer opponent-btn" disable>
                         Pennywise
                     </button>
                     <h2 class="options-title">Symbol</h2>
@@ -34,17 +34,49 @@
                     </div>
                 </div>
             </div>
-            
-        </section>
-    </main>
 
-    <article class="none">
+        </section>
+    </main> -->
+
+    <!-- <article class="none">
         <div class="animation">
-            <div class="hands">
+            <div class="hands"> -->
                 <!-- Hands Animation -->
-            </div>
+            <!-- </div>
         </div>
-    </article>
+    </article> -->
+
+    <div class="game">
+        <section class="game-screen">
+
+            <div class="board-wrapper">
+                <div class="totals">
+                    <button class="show-totals">*</button>
+                </div>
+                <div class="main-game-borad">
+
+                    <div class="score">
+                        <div class="player-one-wins">0</div>
+                        <span>-</span>
+                        <div class="player-two-wins">0</div>
+                    </div>
+
+                    <div class="game-table">
+                        <!-- Game table rander -->
+                    </div>
+                </div>
+                <div class="players">
+                    <div class="player-one avatar-border-circle avatar-left-circle">
+                        <img class="player-one-image" src="./assets/gamepad.png" alt="avatar">
+                    </div>
+                    <div class="player-two avatar-border-circle avatar-right-circle">
+                        <img class="player-two-image" src="./assets/gamepad.png" alt="avatar">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
     
 
     <script src="./main.js"></script>
